@@ -1,0 +1,52 @@
+You are given one number N. You must write a program to test whether the given number is prime or not. NOTE : A prime number is such a number that has only two factors : i.e. 1 and itself. 1 is not a prime number.
+
+Input Format
+
+First line contains one number, N.
+
+Constraints
+
+1 <= N <= 10^5
+
+Output Format
+
+Output "yes" if N is a prime number and "no" otherwise. (without the quotes)
+
+Sample Input 0
+
+5
+Sample Output 0
+
+yes
+Sample Input 1
+
+12
+Sample Output 1
+
+no
+
+Code:
+
+ #include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int number;
+    scanf("%d",&number);
+    if(number>=1 && number<=pow(10,5))
+    {
+        int count = 0, i;
+        //Prepare a loop which genertes numbers from 1 to number
+        for(i=1;i<=number;i++)
+        {
+            if(number % i == 0)
+                count++;
+        }
+        if(count == 2)      printf("yes");
+        else                printf("no");
+    }
+    return 0;
+}
