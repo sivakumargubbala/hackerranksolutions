@@ -1,0 +1,85 @@
+Your task is simple, write a program in Java to print the following pattern :
+
+N = 1
+1
+
+N = 2
+  1
+1 2 1
+  1
+  
+N = 3
+    1
+  1 2 1
+1 2 3 2 1
+  1 2 1
+    1
+    
+and so on..
+INPUT:
+Input consists of many test cases.
+First line contains the number of test case T.
+Each of the test case lines consists of one number N for that test case.
+
+OUTPUT
+Print the pattern corresponding to the N value of each test case.
+Print a blank line between two test case outputs.
+
+CONSTRAINTS
+1 ≤ T, N ≤ 10
+
+Sample Input 0
+
+3
+1
+2
+3
+Sample Output 0
+
+1
+
+  1
+1 2 1
+  1
+  
+    1
+  1 2 1
+1 2 3 2 1
+  1 2 1
+    1
+
+
+Code:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int testCases;
+    scanf("%d",&testCases);
+    while(testCases--)
+    {
+        int n;    
+        scanf("%d",&n);
+        int i,j;
+        for(i=1;i<=n;i++)
+        {
+            for(j=1;j<=n-i;j++)     printf("  ");
+            for(j=1;j<=i;j++)       printf("%d ",j);
+            for(j=i-1;j>=1;j--)     printf("%d ",j);
+            printf("\n");
+        }
+        for(i=1;i<n;i++)
+        {
+            for(j=1;j<=i;j++)       printf("  ");
+            for(j=1;j<=n-i;j++)     printf("%d ",j);
+            for(j=n-i-1;j>=1;j--)     printf("%d ",j);
+            printf("\n");
+        }
+        printf("\n");
+    }
+    return 0;
+}
