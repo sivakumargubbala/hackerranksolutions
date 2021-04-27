@@ -1,0 +1,56 @@
+Rishi has developed a new way of representing decimal numbers in binary notation as he was bored of the tradition binary format.
+
+He uses the following algorithm :
+
+Each digit is represented with number of '1's (ones) equal to the value of that digit (zero '1's for digit 0).
+Digits are written one by one in the order corresponding to the number and separated by a single '0' digit.
+Rishi learned how to encode the numbers, but he has no clue how to decode them.
+
+Write a program that decodes the numbers for him.
+
+Input Format
+
+Input contains one string - S, denoting the number in the new binary format.
+
+Constraints
+
+1 <= s.length <= 100
+
+Output Format
+
+Print the decoded number.
+
+Sample Input 0
+
+111
+Sample Output 0
+
+3
+Sample Input 1
+
+110011101
+Sample Output 1
+
+2031
+
+Code:
+
+#include<stdio.h>
+int main()
+{
+    char str[100];
+    scanf("%s",str);
+    int i=0, count=0;
+    while(str[i])//str[i]!='\0'
+    {
+        if(str[i] == '1')
+            count++;
+        else
+        {
+            printf("%d",count);
+            count = 0;
+        }
+        i++;
+    }
+    printf("%d",count);
+}
