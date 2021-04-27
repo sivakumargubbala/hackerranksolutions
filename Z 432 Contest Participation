@@ -1,0 +1,43 @@
+Our friend vassily participated in a contest on hackerrank last night, or maybe he didnt? He does not remember. He remembered his rating the day before though. And he knows his rating now.
+If he did not participate, his rating will be the same.
+If he participated and perfomed well, his rating woulve increased and if he did not perform well his rating wouldve decreased. Knowing his previous and current rating can you help him find out what exactly happened?
+
+Input Format
+
+Two numbers, X and Y. X denoting his previous rating and Y denoting is current rating.
+
+Constraints
+
+0 <= X,Y <= 3000
+
+Output Format
+
+Output "Did not participate" if Vassily did not participate. Output "Perfomed well" or "Did not perform well" accordingly if he did participate.
+
+Sample Input 0
+
+2400 2450
+Sample Output 0
+
+Performed well
+Explanation 0
+
+Since his rating changed from 2400 to 2450, it means he participated in the contest and performed well.
+
+Code:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    int previousRating, presentRating;
+    scanf("%d%d",&previousRating,&presentRating);
+    if(previousRating == presentRating)     printf("Did not participate");
+    else if(previousRating < presentRating) printf("Performed well");
+    else                                    printf("Did not perform well");
+    return 0;
+}
