@@ -1,0 +1,25 @@
+C has an operator named sizeof that returns the number of bytes of memory that its argument holds.
+
+For example, sizeof(int) will return 4 while sizeof(long long int) will return 8. You can also pass a variable as an argument.
+
+So, int var; sizeof(var) will also return 4 as var is an integer that occupies 4 bytes.
+
+For this task print the sizes of int,float,long long int, double and char in increasing order.
+
+NOTE : You can check the custom input option to check your output
+
+Code:
+
+#include <stdio.h>
+
+int main()
+{
+	printf("%ld ",sizeof(char));
+    printf("%ld ",sizeof(int));
+    printf("%ld ",sizeof(float));
+    printf("%ld ",sizeof(long long));
+    printf("%ld",sizeof(double));
+    
+    //printf("%ld %ld %ld %ld %ld",sizeof(char),sizeof(int),sizeof(float),sizeof(long long),sizeof(double))
+	return 0;
+}
