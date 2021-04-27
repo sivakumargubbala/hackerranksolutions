@@ -1,0 +1,48 @@
+Given a column title as appears in an Excel Spreadsheet, return its corresponding column number.
+For Example :
+
+A -> 1
+B -> 2
+....
+....
+Z -> 26
+AA -> 27
+Input Format
+
+One string denoting the column title of an excel spreadsheet.
+
+Constraints
+
+The answer will always fit in a 32-bit integer.
+
+Output Format
+
+Output an integer.
+
+Sample Input 0
+
+AA
+Sample Output 0
+
+27
+
+Code:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+    char str[100];
+    scanf("%s",str);
+    int result = 0, i = 0;
+    while(str[i])
+    {
+        result = (result*26) + (str[i]-'A'+1);
+        i++;
+    }
+    printf("%d",result);
+    return 0;
+}
