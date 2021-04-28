@@ -1,0 +1,45 @@
+Write a program that takes as input one decimal number N, and prints its binary form.
+
+Input Format
+
+One number N.
+
+Constraints
+
+0 <= N <= 10^18
+
+Output Format
+
+Binary representation of the number N.
+
+Sample Input 0
+
+2
+Sample Output 0
+
+10
+
+COde:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void displayBinaryValue(long long int n)
+{
+    if(n)
+    {
+        displayBinaryValue(n/2);
+        printf("%lld",n%2);
+    }
+}
+
+int main() 
+{
+    long long int n;
+    scanf("%lld",&n);
+    if(n==0)    printf("0");
+    else        displayBinaryValue(n);
+    return 0;
+}
