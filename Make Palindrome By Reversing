@@ -1,0 +1,77 @@
+Write a code that does the following :
+
+iterations = 0
+number = input()
+while iterations < 5:
+    number = number + number.reverse()
+    if number is palindrome : 
+        print number
+        print "YES"
+    iterations++;
+print "NO"
+Input Format
+
+One number N.
+
+Constraints
+
+1 <= N <= 10^5
+
+Output Format
+
+One number, the final palindrome if possible then YES. If not possible then only a NO.
+
+Sample Input 0
+
+32
+Sample Output 0
+
+55
+YES
+Explanation 0
+
+32 + 23 = 55 which is a palindrome
+
+Sample Input 1
+
+39
+Sample Output 1
+
+363
+YES
+Explanation 1
+
+39 + 93 = 132 132 + 231 = 363 which is a palindrome
+
+Code:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int reverseNumber(int n)
+{
+    int rev = 0;
+    while(n)
+    {
+        rev = rev * 10 + n%10;
+        n = n/10;
+    }
+    return rev;
+}
+int main() 
+{
+    int n,counter = 5;
+    scanf("%d",&n);
+    while(counter--)
+    {
+        n = n + reverseNumber(n);
+        if(n == reverseNumber(n))
+        {
+            printf("%d\nYES",n);
+            return 0;
+        }
+    }
+    printf("NO");
+    return 0;
+}
