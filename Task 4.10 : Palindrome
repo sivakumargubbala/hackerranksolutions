@@ -1,0 +1,45 @@
+Implement the function palindrome that accepts one string as an argument and returns 1 if the string is a palindrome and 0 otherwise.
+
+A palindrome is a string that remains the same even when reversed.
+
+Sample Input 0
+
+kawaki
+Sample Output 0
+
+0
+
+Code:
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<ctype.h>
+int palindrome(char* str)
+{
+    char *temp = str;
+    int len = 0;
+    while(*temp)
+    {
+        len++;
+        temp++;
+    }
+    
+    int i=0,j=len-1;
+    while(i<j)
+    {
+        if(*(str+i) != *(str+j))
+            return 0;
+        i++;
+        j--;
+    }
+    return 1;
+        
+}	
+int main()
+{
+  char str[50];
+  gets(str);
+  printf("%d", palindrome(str));
+  return 0;
+}
