@@ -1,0 +1,64 @@
+Input Format
+
+A single string denoting w.
+
+Constraints
+
+1 <= strlen(w) <= 100 w contains only alphabets a-z (lowercase).
+
+Output Format
+
+Print "Yes" if it is beautiful otherwise "No".
+
+Sample Input 0
+
+abacaba
+Sample Output 0
+
+Yes
+Explanation 0
+
+Every pair of consecutive characters consists of one vowel and one consonant, so the word is beautiful and we print Yes.
+
+Sample Input 1
+
+badd
+Sample Output 1
+
+No
+Explanation 1
+
+There are two consecutive occurrences of d, so it is not beautiful and we print No.
+
+Sample Input 2
+
+yes
+Sample Output 2
+
+No
+Explanation 2
+
+The first pair of letters (y and e) both appear in our set of vowel characters, so the word is not beautiful and we print No.
+
+Code:
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() 
+{
+    char str[100];
+    scanf("%s",str);
+    for(int i=0;i<strlen(str)-1;i++)
+    {
+        if((str[i]==str[i+1]) || ((str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'||str[i]=='y')&&(str[i+1]=='a'||str[i+1]=='e'||str[i+1]=='i'||str[i+1]=='o'||str[i+1]=='u'||str[i+1]=='y')))
+        {
+            printf("No");
+            return 0;
+        }
+    }
+    printf("Yes");
+    return 0;
+}
