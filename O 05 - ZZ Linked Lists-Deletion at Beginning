@@ -1,0 +1,110 @@
+Write a program to create a linked list with the given number of elements(follow the normal insertion process i.e., insert node at end evry time).If there are no elements given then the head of the linked list will be null. After completing the insertion of all you will be given a value of "k". Perform the deletion at beginning k times. Print the elements in the linked list after successful completion of deletion.
+
+Note: Intially the linked list will be empty. The k value always will be less than no.of elements in the list
+
+Input Format
+
+First Line contains number of elements(n) to be inserted and followed the n+1 elements the (n+1)th element denotes k value
+
+Constraints
+
+0<=n<=100
+
+1<=element<=10000
+
+0<=k<=1000
+
+Output Format
+
+Print the elements in the linked list
+
+Sample Input 0
+
+4
+1
+2
+3
+4
+2
+Sample Output 0
+
+3->4
+Explanation 0
+
+After successful insertion the list will be like 1->2->3->4->NULL
+
+The given k value is 2.After two successful deletions the list will become 3->4->NULL
+
+COde:
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node *head = NULL;
+
+void print(struct node *head)
+{
+    if(head == NULL)    return;
+    else
+    {
+        struct node *ptr = head;
+        while(ptr->next!=NULL)
+        {
+            printf("%d->",ptr->data);
+            ptr = ptr->next;
+        }
+        printf("%d",ptr->data);
+        printf("\n");
+    }
+}
+
+struct node* insertAtEnd(struct node *head, int data)
+{
+    struct node *newNode = (struct node*)malloc(sizeof(struct node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if(head == NULL)    return newNode;
+    else
+    {
+        struct node *ptr = head;
+        while(ptr->next!=NULL)
+            ptr = ptr->next;
+        ptr->next = newNode;
+        return head;
+    }
+}
+
+struct node* deleteAtBegin(struct node *head)
+{
+    if(head == NULL || head->next == NULL)  return NULL;
+    else    //return head->next;
+    {
+        struct node *temp = head;
+        head = head->next;
+        free(temp);
+        return head;
+    }
+}
+
+int main()
+{
+    int n;
+    scanf("%d",&n);
+    while(n--)
+    {
+        int val;
+        scanf("%d",&val);
+        head = insertAtEnd(head,val);
+    }
+    int delCount;
+    scanf("%d",&delCount);
+    for(int i=1;i<=delCount;i++)
+        head = deleteAtBegin(head);
+    print(head);
+    return 0;
+}
